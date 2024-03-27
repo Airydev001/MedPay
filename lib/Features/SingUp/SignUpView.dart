@@ -1,39 +1,33 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(SignUpApp());
-}
-
-class SignUpApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Sign Up',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: SignUpPage(),
-    );
-  }
-}
-
 class SignUpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
           title: Text(
-              'Sign Up Page',
-            style: TextStyle(
-              fontWeight: FontWeight.bold
-            ),
-          )
-      ),
+        '',
+        style: TextStyle(fontWeight: FontWeight.bold),
+      )),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            Column(
+              children: [
+                Text("Sign up",style: TextStyle(
+                  fontSize: 32,
+                ),),
+                SizedBox(
+                  height: 15,
+                ),
+                Text("Hello! Let's create your account+++++")
+              ],
+            ),
+            SizedBox(
+              height: 30,
+            ),
             Text(
               'Enter Email Address',
               style: TextStyle(fontSize: 18.0),
@@ -85,10 +79,8 @@ class SignUpPage extends StatelessWidget {
             ElevatedButton(
               onPressed: () {},
               child: Text(
-                  'Continue',
-                style: TextStyle(
-                  color: Colors.white
-                ),
+                'Continue',
+                style: TextStyle(color: Colors.white),
               ),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blueAccent.shade700,
