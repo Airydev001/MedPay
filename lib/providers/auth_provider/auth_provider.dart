@@ -12,6 +12,24 @@ class AuthProvider extends ChangeNotifier {
 
   User? get user => _user;
 
+  Future<void> signInWithEmailAndPassword(
+      String email, String password, String? name, context) async {
+    try {
+      final UserCredential userCredential =
+          await _auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      _user = userCredential.user;
+      await saveUserDataToFirestore();
+      Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) => const TransactionView()));
+      notifyListeners();
+    } catch (error) {
+      print(error.toString());
+    }
+  }
+
   Future<void> signInWithGoogle(context) async {
     try {
       final GoogleSignInAccount? googleSignInAccount =

@@ -4,8 +4,12 @@ import 'package:med_pay/providers/auth_provider/auth_provider.dart';
 import 'package:provider/provider.dart';
 
 class SignUpPage extends StatelessWidget {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    final authProvider = Provider.of<AuthProvider>(context);
     return Scaffold(
       appBar: AppBar(
           title: Text(
@@ -40,6 +44,7 @@ class SignUpPage extends StatelessWidget {
             ),
             SizedBox(height: 8.0),
             TextFormField(
+              controller: _emailController,
               decoration: InputDecoration(
                 hintText: 'Email Address',
                 border: OutlineInputBorder(),
@@ -52,6 +57,7 @@ class SignUpPage extends StatelessWidget {
             ),
             SizedBox(height: 8.0),
             TextFormField(
+              controller: _nameController,
               decoration: InputDecoration(
                 hintText: 'Full Name',
                 border: OutlineInputBorder(),
@@ -64,6 +70,7 @@ class SignUpPage extends StatelessWidget {
             ),
             SizedBox(height: 8.0),
             TextFormField(
+              controller: _passwordController,
               decoration: InputDecoration(
                 hintText: 'Password',
                 border: OutlineInputBorder(),
@@ -83,7 +90,13 @@ class SignUpPage extends StatelessWidget {
             ),
             SizedBox(height: 16.0),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                authProvider.signInWithEmailAndPassword(
+                    _emailController.text.trim(),
+                    _passwordController.text.trim(),
+                    _nameController.text.trim(),
+                    context);
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blueAccent.shade700,
                 minimumSize: Size(MediaQuery.of(context).size.width * 0.5, 55),
