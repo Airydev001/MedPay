@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:med_pay/Features/Transaction/TransactionView.dart';
+import 'package:med_pay/providers/auth_provider/auth_provider.dart';
+import 'package:provider/provider.dart';
 
 class SignUpPage extends StatelessWidget {
   @override
@@ -16,9 +19,12 @@ class SignUpPage extends StatelessWidget {
           children: [
             Column(
               children: [
-                Text("Sign up",style: TextStyle(
-                  fontSize: 32,
-                ),),
+                Text(
+                  "Sign up",
+                  style: TextStyle(
+                    fontSize: 32,
+                  ),
+                ),
                 SizedBox(
                   height: 15,
                 ),
@@ -78,10 +84,6 @@ class SignUpPage extends StatelessWidget {
             SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: () {},
-              child: Text(
-                'Continue',
-                style: TextStyle(color: Colors.white),
-              ),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blueAccent.shade700,
                 minimumSize: Size(MediaQuery.of(context).size.width * 0.5, 55),
@@ -92,6 +94,10 @@ class SignUpPage extends StatelessWidget {
                   color: Colors.blueAccent.shade700,
                   width: 2,
                 ),
+              ),
+              child: Text(
+                'Continue',
+                style: TextStyle(color: Colors.white),
               ),
             ),
             SizedBox(height: 16.0),
@@ -104,6 +110,11 @@ class SignUpPage extends StatelessWidget {
             InkWell(
               onTap: () {
                 // Navigate to another signup page
+                final authProvider =
+                    Provider.of<AuthProvider>(context, listen: false);
+                // authProvider.signInWithGoogle();
+                // Navigator.of(context).push(MaterialPageRoute(
+                //     builder: (context) => const TransactionView()));
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
