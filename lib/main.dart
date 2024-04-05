@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:med_pay/Features/Analytics/AnalyticsView.dart';
 import 'package:med_pay/Features/Home/HomePage.dart';
 import 'package:med_pay/Features/SingUp/SignUpView.dart';
 import 'package:med_pay/Features/SingUp/sign_up001.dart';
@@ -42,7 +43,8 @@ class MyApp extends StatelessWidget {
           home: Consumer<SplashScreenState>(
             builder: (context, state, _) {
               if (state.isInitialized) {
-                return Signup001();
+                return AnalyticsView();
+                //Signup001();
               } else {
                 return const SplashScreen();
               }
