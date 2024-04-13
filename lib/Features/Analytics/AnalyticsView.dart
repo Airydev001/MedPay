@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class AnalyticsView extends StatelessWidget {
@@ -98,15 +97,15 @@ Widget barChart(BuildContext context) {
   return Center(
       child: Container(
           child: SfCartesianChart(
-              primaryXAxis: CategoryAxis(),
+              primaryXAxis: const CategoryAxis(),
               series: <CartesianSeries>[
         ColumnSeries<ChartData, String>(
-            color: Color(0xffdd5302),
+            color: const Color(0xffdd5302),
             dataSource: chartData,
             xValueMapper: (ChartData data, _) => data.x,
             yValueMapper: (ChartData data, _) => data.y),
         ColumnSeries<ChartData, String>(
-            color: Color(0xffffb13b),
+            color: const Color(0xffffb13b),
             dataSource: chartData,
             xValueMapper: (ChartData data, _) => data.x,
             yValueMapper: (ChartData data, _) => data.y1),

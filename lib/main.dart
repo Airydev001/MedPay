@@ -6,6 +6,7 @@ import 'package:med_pay/Features/SingUp/SignUpView.dart';
 import 'package:med_pay/Features/SingUp/sign_up001.dart';
 import 'package:med_pay/Features/Transaction/Widgets/add_income_view.dart';
 import 'package:med_pay/Features/splash_screen.dart';
+import 'package:med_pay/Features/splash_screen001.dart';
 import 'package:med_pay/firebase_options.dart';
 import 'package:med_pay/providers/auth_provider/auth_provider.dart';
 import 'package:med_pay/providers/splash_provider.dart';
