@@ -32,8 +32,12 @@ class _ScreenOneState extends State<ScreenOne> {
               },
               children: [
                 //_buildDots(),
-                OnboardingScreen001(),
-                OnboardingScreen002()
+                OnboardingScreen001(
+                  currentPageIndex: _currentPageIndex,
+                ),
+                OnboardingScreen002(
+                  currentPageIndex: _currentPageIndex,
+                )
               ],
             ),
           ),

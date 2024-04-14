@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:med_pay/Features/onboarding/onboarding2.dart';
+import 'package:med_pay/Features/widgets/build_dots.dart';
 import 'package:med_pay/Features/widgets/custom_btn.dart';
 
 class OnboardingScreen001 extends StatelessWidget {
-  const OnboardingScreen001({super.key});
-
+  const OnboardingScreen001({super.key, required this.currentPageIndex});
+  final currentPageIndex;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -72,8 +73,13 @@ class OnboardingScreen001 extends StatelessWidget {
                       child: Column(
                     children: [
                       const SizedBox(
-                        width: 50,
-                        height: 50,
+                        width: 10,
+                        height: 10,
+                      ),
+                      buildDots(currentPageIndex),
+                      const SizedBox(
+                        width: 20,
+                        height: 20,
                       ),
                       Center(
                         child: RichText(
