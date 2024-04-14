@@ -5,6 +5,9 @@ import 'package:med_pay/Features/Home/HomePage.dart';
 import 'package:med_pay/Features/SingUp/SignUpView.dart';
 import 'package:med_pay/Features/SingUp/sign_up001.dart';
 import 'package:med_pay/Features/Transaction/Widgets/add_income_view.dart';
+import 'package:med_pay/Features/onboarding/onboarding1.dart';
+import 'package:med_pay/Features/slider_screen.dart';
+import 'package:med_pay/Features/slider_screen.dart';
 import 'package:med_pay/Features/splash_screen.dart';
 import 'package:med_pay/Features/splash_screen001.dart';
 import 'package:med_pay/firebase_options.dart';
@@ -44,7 +47,7 @@ class MyApp extends StatelessWidget {
           home: Consumer<SplashScreenState>(
             builder: (context, state, _) {
               if (state.isInitialized) {
-                return AnalyticsView();
+                return ScreenOne();
                 //Signup001();
               } else {
                 return const SplashScreen();
