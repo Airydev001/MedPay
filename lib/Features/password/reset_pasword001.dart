@@ -22,6 +22,7 @@ class _ResetPasswordScreen001State extends State<ResetPasswordScreen001> {
           child: Container(
         margin: const EdgeInsetsDirectional.all(20),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
