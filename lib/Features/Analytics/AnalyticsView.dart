@@ -10,7 +10,6 @@ class AnalyticsView extends StatelessWidget {
     return Scaffold(
       body: Container(
         width: double.infinity,
-        height: double.infinity,
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: SingleChildScrollView(
@@ -75,9 +74,23 @@ class AnalyticsView extends StatelessWidget {
                         ],
                       ),
                       barChart(context),
+                      Divider(
+                        height: 5,
+                      ),
                     ],
                   ),
-                )
+                ),
+                Container(
+                  margin: EdgeInsets.only(left: 30),
+                  child: Row(
+                    children: [
+                      Text("Income"),
+                      SizedBox(width: 150),
+                      Text("Expense")
+                    ],
+                  ),
+                ),
+                splineChart(context)
               ],
             ),
           ),
@@ -121,4 +134,35 @@ class ChartData {
   final String x;
   final double? y;
   final double? y1;
+}
+
+@override
+Widget splineChart(BuildContext context) {
+  final List<ChartDatas> chartData = <ChartDatas>[
+    ChartDatas(1, 10.53),
+    ChartDatas(2, 9.5),
+    ChartDatas(3, 10),
+    ChartDatas(4, 9.4),
+  ];
+
+  return Center(
+      child: Container(
+          child: SfCartesianChart(series: <CartesianSeries>[
+    SplineAreaSeries<ChartDatas, int>(
+        borderWidth: 5.0,
+        borderColor: Color(0xff1A56DB),
+        color: Color(0xff1A56DB).withOpacity(0.3),
+        dataSource: chartData,
+        xValueMapper: (ChartDatas data, _) => data.x,
+        yValueMapper: (ChartDatas data, _) => data.y)
+  ])));
+}
+
+class ChartDatas {
+  ChartDatas(
+    this.x,
+    this.y,
+  );
+  final int x;
+  final double? y;
 }

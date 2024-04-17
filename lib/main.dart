@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
           home: Consumer<SplashScreenState>(
             builder: (context, state, _) {
               if (state.isInitialized) {
-                return forgotPassword();
+                return AnalyticsView();
                 //Signup001();
               } else {
                 return const SplashScreen();
